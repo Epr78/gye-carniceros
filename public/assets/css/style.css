@@ -1,0 +1,2086 @@
+/* =================================================
+RESET
+================================================= */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+ul{
+list-style:none;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* =================================================
+BASE
+================================================= */
+
+body{
+font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+color:#222;
+background:#ffffff;
+padding-top: 72px;
+}
+
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+/* =================================================
+HEADER
+================================================= */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+right:0;
+height:72px;
+background:#ffffff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 2rem;
+box-shadow:0 2px 4px rgba(0,0,0,0.08);
+z-index:9999; /*ANTES 100*/
+}
+
+.header__logo{
+display:flex;
+align-items:center;
+gap:0.75rem;
+}
+
+.logo-circle{
+width:40px;
+height:40px;
+border-radius:50%;
+background:#c81414;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:0.9rem;
+}
+
+.logo-text{
+font-weight:700;
+font-size:1.1rem;
+}
+
+.header__nav{
+display:flex;
+gap:1.5rem;
+}
+
+.header__nav a{
+color:#333;
+font-size:0.95rem;
+}
+
+.header__nav a:hover{
+color:#c81414;
+}
+
+.header__cart{
+display:inline-flex;
+align-items:center;
+gap:0.4rem;
+padding:0.4rem 1rem;
+border-radius:999px;
+background:#c81414;
+color:#fff;
+font-size:0.9rem;
+font-weight:600;
+}
+
+.header__cart:hover{
+background:#a31212;
+}
+
+@media (max-width:768px){
+.header{
+flex-direction:column;
+height:auto;
+padding:1rem;
+gap:1rem;
+}
+
+.header__nav{
+flex-wrap:wrap;
+justify-content:center;
+gap:1rem;
+}
+}
+
+
+/* =================================================
+HERO 
+================================================= */
+
+/* FONDO DIFUMINADO */
+.hero-section.hero-contact::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:url("../img/carniceria.jpg") center/cover no-repeat;
+
+    filter:blur(8px);
+    transform:scale(1.15);
+
+    z-index:0;
+}
+
+/* HERO CON DIFUMINADO GLOBAL CLASE GENÉRICA*/
+.hero-section.hero-blur::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:url("../img/carniceria.jpg") center/cover no-repeat;
+
+    filter:blur(8px);
+    transform:scale(1.2);
+
+    z-index:0;
+}
+
+.hero-section.hero-blur::after{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.75)
+    );
+
+    z-index:1;
+}
+
+
+
+/* CONTENEDOR HERO */
+.hero-section{
+    position:relative;
+    height:60vh;
+    min-height:350px;
+    margin-top:72px;
+    background:none;
+    z-index: 0;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:center;
+    background: url("../img/carniceria.jpg") center/cover no-repeat;
+    overflow: hidden; /* PARA EVITAR QUE COLAPSE */
+}
+
+
+.hero-section:not(.hero-contact):not(.hero-cart-page){
+    background: url("../img/carniceria.jpg") center/cover no-repeat !important;
+}
+
+.hero-section:not(.hero-contact):not(.hero-cart-page) h1{
+    color:#f5e6d3;
+    text-shadow:
+        0 0 10px rgba(245,230,211,0.4),
+        0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hero__avatars .avatar{
+    transition: transform 0.3s ease;
+}
+
+.hero__avatars .avatar img{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER AVATARS */
+.hero__avatars .avatar:hover{
+    transform: translateY(-6px);
+}
+
+.hero__avatars .avatar:hover img{
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+
+/* CAPAS */
+.hero-content{
+    position: relative;
+    z-index: 2;
+}
+
+.hero-team{
+    position: relative;
+    z-index: 3;
+}
+
+
+
+
+/* =================================================
+HERO TEXTO
+================================================= */
+
+.hero-content{
+    text-align:center;
+    color:white;
+    max-width:800px;
+    padding:0 1rem;
+}
+
+/* TÍTULO */
+.hero-content h1{
+    font-size:3rem;
+    margin-bottom:25px;
+
+    color:#ffffff;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+/* DETALLE CREMA */
+.hero-content h1 span{
+    color:#f5e6d3;
+    text-shadow: 0 0 15px rgba(245,230,211,0.4);
+}
+
+
+/* =================================================
+TEXTO PRINCIPAL
+================================================= */
+
+.hero-text{
+    font-size:1.2rem;
+    line-height:1.6;
+    max-width:600px;
+    margin: 15px auto;
+
+    background: linear-gradient(90deg, #ffffff, #f5e6d3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+
+/* =================================================
+CTA (BRILLO LIMPIO)
+================================================= */
+
+/* CTA BASE */
+.hero-cta{
+    position: relative;
+    display:inline-block;
+    margin-top:8px;
+
+    font-size:1.2rem;
+    font-weight:500;
+
+    color:#f5e6d3; 
+    overflow:hidden;
+}
+
+/* BRILLO REAL */
+.hero-cta::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:120%;
+    height:100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+
+    animation: shineCTA 2.5s linear infinite;
+}
+
+/* ANIMACIÓN */
+@keyframes shineCTA{
+    0%{ left:-120%; }
+    100%{ left:120%; }
+}
+
+
+/* =================================================
+HERO ELEMENTOS
+================================================= */
+
+.hero__buttons{
+    margin-top:2rem;
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+}
+
+/* SUBTÍTULO ANIMADO */
+.hero-subtitle {
+    color: #eaeaea;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-subtitle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    100% {
+        left: 100%;
+    }
+}
+
+/* =================================================
+HERO CONTACTO (AVATARES)
+================================================= */
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-contact {
+    text-align: center;
+}
+
+/* AVATARES */
+.hero-team {
+    display:flex !important;
+    flex-direction: row !important;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    align-items: center; 
+    gap: 20px; 
+}
+
+.hero__avatars{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+.avatar{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    overflow:hidden;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.hero-team img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 4px solid #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+    transition: transform 0.3s ease;
+}
+
+/* HOVER HERO TEAM*/
+.hero-team img:hover {
+    transform: scale(1.1);
+}
+
+
+.hero-member {
+    text-align: center;
+}
+
+.hero-member p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* HOVER HERO MEMBER */
+.hero-member:hover p{
+    color:#c81414;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(200,20,20,0.5);
+}
+
+
+/* TEXTO ENCIMA DEL FONDO */
+.hero-contact .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* FORZAR HERO EN CONTACTO A VERTICAL */
+.hero-section.hero-contact {
+    flex-direction: column;   
+    position:relative;
+    overflow:hidden; 
+}
+
+
+/* =================================================
+BOTONES
+================================================= */
+
+.btn{
+display:inline-block;
+padding:0.8rem 1.8rem;
+border-radius:999px;
+font-weight:600;
+font-size:0.95rem;
+transition:all .25s ease;
+letter-spacing:0.5px;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+
+.btn-primary{
+background:#c81414;
+color:#fff;
+box-shadow:0 4px 10px rgba(200,20,20,0.3);
+}
+
+.btn-primary:hover{
+background:#a31212;
+}
+
+.btn-secondary{
+background:#fff;
+color:#c81414;
+border:1px solid #c81414;
+}
+
+.btn-secondary:hover{
+background:#f4e4cf;
+}
+
+.btn-card{
+padding:0.45rem 1.4rem;  
+font-size:0.85rem;
+font-weight:500;
+border-radius:999px;
+}
+
+.btn-small{
+padding:0.5rem 1.2rem;
+font-size:0.85rem;
+font-weight:500;
+}
+
+.btn-volver{
+  margin-top:2rem;
+  display:inline-block;
+}
+
+
+
+/* =================================================
+INICIO VENTAJAS / BENEFICIOS
+================================================= */
+
+.benefits{
+background:#f4e4cf;
+padding:2.5rem 2rem;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:2rem;
+text-align:center;
+}
+
+.benefit__icon{
+width:60px;
+height:60px;
+margin:auto;
+border-radius:50%;
+background:#c81414;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.5rem;
+transition:transform .2s ease; 
+}
+
+.benefit:hover{
+transform:translateY(-5px);
+}
+
+.benefit{
+transition:all .25s ease;
+}
+
+.benefit h3{
+margin:0.5rem 0;
+}
+
+.benefit p{
+font-size:0.9rem;
+}
+
+@media (max-width:900px){
+.benefits{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media (max-width:600px){
+.benefits{
+grid-template-columns:1fr;
+}
+}
+
+.filosofia--home .filosofia-item{
+    background:none;
+    padding:0;
+    box-shadow:none;
+}
+
+
+
+/* =================================================
+ABOUT / QUIÉNES SOMOS
+================================================= */
+
+.about-split{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    width:100%;
+    min-height:520px; /*IGUALAR ALTURAS ENTRE LOS BLOQUES */
+    align-items:stretch;
+    overflow:hidden;
+}
+
+/* IMAGEN */
+.about-split__image{
+    display:flex;
+    height:100%;
+}
+
+.about-split__image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* TEXTO */
+.about-split__content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px 100px;
+    background:#f4e4cf;
+    gap:12px;
+}
+
+/* TITULOS */
+.about-split__content h2{
+    color:#c81414;
+    margin-bottom:10px;
+}
+
+/* TEXTO */
+.about-split__content p{
+    color:#555;
+}
+
+/* LISTA */
+.about-split__content ul{
+    padding-left:18px;
+}
+
+.about-split__content li{
+    margin-bottom:6px;
+}
+
+.about-split__content li::marker{
+    color:#c81414;
+    font-size:10px;
+}
+
+/* BORDE HISTORIA */
+.about-highlight{
+    border-left:5px solid #c81414;
+}
+
+
+
+/* =========================================
+REVERSE (QUE OFRECEMOS)
+========================================= */
+
+.about-split.reverse{
+    grid-template-columns:1fr 1.2fr;
+}
+
+.about-split.reverse .about-split__image{
+    order:2;
+}
+
+.about-split.reverse .about-split__content{
+    order:1;
+}
+
+
+
+/* =========================================
+IMÁGENES ALINEADAS 
+========================================= */
+
+/* evita que una sección invada otra */
+.about-split + .about-split{
+    margin:0;
+}
+
+/* asegura mismo corte visual */
+.about-split__image img{
+    object-position:center;
+}
+
+
+
+/* =========================================
+ICONO ECO
+========================================= */
+
+.about-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:20px;
+}
+
+.about-icon img{
+    width:60px;
+    height:auto;
+    opacity:0.9;
+    transition:0.3s ease;
+}
+
+.about-icon img:hover{
+    transform:scale(1.15);
+    filter: drop-shadow(0 5px 10px rgba(200,20,20,0.4));
+}
+
+
+.about-split__content ul{
+    list-style: disc;
+    padding-left:20px;
+}
+
+.about-split__content li::marker{
+    color:#c81414;
+    font-size:12px;
+}
+
+.about-split{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    height:520px; 
+}
+
+.about-split.reverse{
+    grid-template-columns:1fr 1.2fr;
+}
+
+/* IMAGEN ocupa TODO */
+.about-split__image{
+    height:100%;
+}
+
+.about-split__image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* TEXTO también ocupa TODO */
+.about-split__content{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+
+/* =========================================
+COMPROMISO
+========================================= */
+
+.about-full{
+    width:100%;
+    padding:60px 2rem;
+    text-align:center;
+    background:#f9f3e8;
+}
+
+.compromiso-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:10px;
+}
+
+.icon-compromiso{
+    width:35px;
+    transition:0.3s ease;
+}
+
+.compromiso-title:hover .icon-compromiso{
+    transform:scale(1.1);
+}
+
+
+
+/* =========================================
+DIVIDER
+========================================= */
+
+.divider{
+    height:60px;
+    background:linear-gradient(to bottom, #fff, #f4e4cf);
+}
+
+
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media (max-width:900px){
+
+    .about-split{
+        grid-template-columns:1fr;
+    }
+
+    .about-split.reverse{
+        grid-template-columns:1fr;
+    }
+
+    .about-split__image{
+        order:1 !important;
+    }
+
+    .about-split__content{
+        order:2 !important;
+        padding:40px 25px;
+    }
+}
+
+/* =========================================
+FILOSOFÍA (TARJETAS)
+========================================= */
+
+.filosofia{
+    background:#f4e4cf;
+    padding:4rem 2rem;
+}
+
+.filosofia h2{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:3rem;
+}
+
+/* GRID 2x2 */
+.filosofia-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:2rem;
+    max-width:1000px;
+    margin:auto;
+}
+
+/* TARJETA */
+.filosofia-item{
+    background:#fff;
+    padding:1.5rem;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+    transition:0.3s ease;
+}
+
+/* ICONO */
+.filosofia-item__dot{
+    width:50px;
+    height:50px;
+    background:#c81414;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:1.2rem;
+    flex-shrink:0;
+}
+
+/* TEXTO */
+.filosofia-item h3{
+    margin-bottom:5px;
+}
+
+/* HOVER PRO */
+.filosofia-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width:700px){
+    .filosofia-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =================================================
+PRODUCTOS
+================================================= */
+
+.products{
+  padding-top:2rem;
+}
+
+.products h2{
+  margin-top:2.5rem;
+  margin-bottom:1.5rem;
+  text-align:center;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.product-card{
+background:#fff;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+overflow:hidden;
+transition:.25s;
+width: 340px;
+max-width: 340px;
+min-height: 500px;
+}
+
+.product-card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.product-card img{
+width:100%;  
+height:200px;
+object-fit:cover;
+border-bottom:1px solid #fff;
+object-position: center;
+}
+
+.product-card__body{
+display:flex;
+flex-direction:column;
+gap:0.8rem;
+padding-bottom:1rem;
+padding:1rem;
+}
+
+
+.product-card__body h3{
+font-size:1.2rem;
+margin-bottom:0.5rem;
+}
+
+.product-card__body p{
+font-size:1rem;
+color:#555;
+}
+
+
+.product-tags span{
+background:#f4e4cf;
+padding:4px 8px;
+border-radius:6px;
+font-size:0.75rem;
+margin-right:6px;
+}
+
+.product-tags{
+  margin:15px 0;
+}
+
+/* 1ª línea → familia + tipo (Cerdo, peso) */
+.product-card__body .product-tags:nth-of-type(1) span{
+  background:#e8d3b0;
+  color:#333;
+}
+
+/* 2ª línea → preparación */
+.product-card__body .product-tags:nth-of-type(2) span{
+  background:#f4e4cf;
+  color:#333;
+}
+
+/* 3ª línea → stock */
+.product-card__body .product-tags:nth-of-type(3) span{
+  background:#e8f0e8;
+  color:#2e5d34;
+  font-weight:500;
+}
+
+.product-card__body .product-tags:nth-of-type(1) span:first-child{
+  background:#c9a97f;
+  color:#fff;
+}
+
+.product-card__body .product-tags:nth-of-type(1) span:last-child{
+  background:#e8d3b0;
+}
+
+
+.product-bottom{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:1rem;
+padding: 0 0.8rem;
+}
+
+.product-actions{
+  margin-top:1.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+}
+
+.product-actions form{
+  display:flex;
+  flex-direction:column;
+  gap:8px; /* Para crear separación automática */
+}
+
+
+.product-detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  max-width:1100px;
+  margin:4rem auto;
+  padding:0 2rem;
+  align-items:start;
+  margin-bottom: 4rem;
+}
+
+.product-detail__image img{
+  width:100%;
+  height:300px;      
+  object-fit:cover;   /*  Para recortar */
+  border-radius:12px;
+}
+
+.product-detail__info{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.product-detail__info p{
+  margin:0;
+  line-height:1.5;
+}
+
+.product-buy{
+  margin-top:0.8rem;     /* Para dejar menos espacio arriba */
+  padding-top:0.8rem;      
+  border-top:1px solid #eee;
+}
+
+.product-buy form{
+  display:flex;
+  flex-direction:column;
+  gap:8px; 
+}
+
+.product-buy button{
+  margin-top:5px; 
+}
+
+.product-buy input,
+.product-buy select{
+  margin-top:3px;
+}
+
+.product-desc{
+  margin-bottom:1rem;
+  color:#555;
+  line-height:1.6;
+}
+
+.product-price{
+  font-size:2rem;
+  font-weight:700;
+  color:#c81414;
+}
+
+.price{
+font-weight:800;
+font-size:1.1rem;
+color:#c81414;
+margin-left: 5px;
+}
+
+@media (max-width:900px){
+.products-grid{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media (max-width:600px){
+.products-grid{
+grid-template-columns:1fr;
+}
+}
+
+.product-meta p{
+  margin:4px 0;
+  color:#555;
+}
+
+.product-meta{
+  margin-top:0.5rem;
+}
+
+
+
+/* =================================================
+OFERTAS 
+================================================= */
+.offers{
+background:#f4e4cf;
+padding:4rem 0;
+}
+
+.offers h2{
+text-align:center;
+margin-bottom:0.5rem;
+}
+
+.offers__text{
+text-align:center;
+margin-bottom:2rem;
+color:#555;
+}
+
+.offer-badge{
+  background:#c81414;
+  color:#fff;
+  padding:4px 10px;
+  border-radius:20px; 
+  font-size:0.75rem;
+  font-weight:600;
+  text-decoration: none;
+  display:inline-block;
+  margin-left: 8px;
+  margin-top:8px;
+  margin-bottom:5px;
+  transition: 0.2s;
+}
+
+.offer-badge:hover{
+    background:#a80f0f;
+}
+
+.offers .product-card{
+    border:1px solid rgba(200,20,20,0.1);
+}
+
+.price-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.price-new {
+    color: #e60000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.ofertas-bg {
+    background-color: #f8f1e7;
+    padding: 40px 0;
+}
+
+.product-card {
+    position: relative;
+}
+
+.badge-oferta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e60000;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.products.ofertas-bg {
+    background-color: #f8f1e7;
+}
+
+.price-old,
+.price-new,
+.price {
+    white-space: nowrap;
+}
+
+
+/*=====================================
+RECETAS
+======================================*/
+
+.hero-section.hero-blur{
+    padding-top:4rem;
+}
+
+.recipes{
+    padding:4rem 0;
+    background-color: #f8f1e7;;
+}
+
+.recipe-ingredients {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-ingredients li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+}
+
+.recipe-ingredients li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #c40000;
+  font-weight: bold;
+}
+
+.modal__content h3 {
+  margin-top: 15px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__content {
+  background: #fff8f0; /* crema */
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative; /* necesario para el botón cerrar */
+  animation: fadeIn 0.3s ease;
+}
+
+/* títulos */
+.modal__content h2 {
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.modal__content h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* listas */
+.modal__content ul,
+.modal__content ol {
+  margin-left: 1.2rem;
+}
+
+.modal__content li {
+  margin-bottom: 5px;
+}
+
+/* botón cerrar */
+.modal__close {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+/* cajas crema internas */
+.recipe-box {
+  background: #fff3e6;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #f1d5b8;
+}
+
+/* oculto (por si usamo clase recipe) */
+.recipe {
+  display: none;
+}
+
+.recipe-modal-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  max-height: 250px;
+}
+
+.recipe-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.recipe-box li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.recipe-box li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #c40000;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 8px;
+}
+
+
+/* animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:all .6s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.8);}
+to{opacity:1; transform:scale(1);}
+}
+
+
+.recipes-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width:600px){
+  .recipes-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* =================================================
+CONTACTO
+================================================= */
+
+/* ================= LAYOUT ================= */
+.contact-section{
+    max-width:1100px;
+    margin:4rem auto;
+    padding:0 2rem;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+}
+
+@media (max-width:900px){
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ================= TARJETAS INFO ================= */
+.contact-info{
+    background:#ffffff; 
+    padding:2rem;
+    border-radius:12px;
+    border:1.5px solid rgba(232,211,176,0.7);
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:all 0.25s ease;
+}
+
+.contact-info:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 45px rgba(0,0,0,0.12);
+}
+
+/* ================= FORMULARIO ================= */
+.contact-form{
+    background:#f4e4cf; 
+    padding:2rem;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.contact-box{
+    margin-top:10px;
+}
+
+/* LABELS */
+.contact-form label{
+    display:block;
+    margin-bottom:0.4rem;
+    font-weight:600;
+}
+
+/* INPUTS */
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:0.85rem 1rem;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:1rem;
+    margin-bottom:1rem;
+    background:#ffffff;
+    color:#333;
+    transition:all 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline:none;
+    border-color:#c81414;
+    box-shadow:0 0 0 3px rgba(200,20,20,0.15);
+}
+
+.contact-form button{
+    margin-top:25px;
+}
+
+/* ================= TITULOS ================= */
+.contact-info h2{
+    color:#222;
+    font-weight:700;
+    margin-bottom:1.5rem;
+    display:inline-block;
+    position:relative;
+}
+
+.contact-form h2{
+    margin-bottom:1.5rem;
+}
+
+/* LINEA ANIMADA */
+.contact-info h2::after{
+    content:'';
+    display:block;
+    width:100%;
+    height:3px;
+    background:#e8d3b0;
+    margin-top:8px;
+    transform:scaleX(0);
+    transform-origin:left;
+    animation:lineReveal 2s ease infinite;
+}
+
+@keyframes lineReveal{
+    to{
+        transform:scaleX(1);
+    }
+}
+
+/* ================= TEXTO ================= */
+.contact-info p{
+    margin-bottom:1.5rem;
+    line-height:1.6;
+    color:#333;
+}
+
+.contact-info li{
+    color:#333;
+}
+
+.contact-info strong{
+    color:#c9a97f;
+    font-weight:600;
+}
+
+/* ================= LISTA ================= */
+.contact-list li{
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+/* ================= HORARIO ================= */
+.contact-info h3{
+    text-align:center;
+    margin:30px 0 15px;
+    font-size:1.4rem;
+    font-weight:700;
+    color:#222;
+    position:relative;
+}
+
+.contact-info h3::after{
+    content:'';
+    display:block;
+    width:100px;
+    height:3px;
+    background:#e8d3b0;
+    margin:8px auto 0;
+}
+
+.schedule{
+    margin-top:15px;
+}
+
+.schedule li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 14px;
+    margin-bottom:10px;
+    background:#f9f9f9;
+    border-radius:8px;
+    transition:0.2s ease;
+}
+
+.schedule li:hover{
+    background:#f4e4cf;
+    transform:translateX(4px);
+}
+
+.schedule .day{
+    font-weight:600;
+    color:#c9a97f;
+}
+
+.schedule .time{
+    color:#333;
+}
+
+.schedule .divider{
+    color:#c81414;
+    font-weight:700;
+    margin:0 6px;
+}
+
+.schedule .closed .time{
+    color:#c81414;
+    font-weight:500;
+}
+
+/* ================= TARJETAS PEQUEÑAS ================= */
+.contact-card{
+    background:#f4e4cf;
+    padding:15px 18px;
+    border-radius:10px;
+    margin-bottom:15px;
+    transition:all 0.25s ease;
+    color:#333;
+}
+
+.contact-card strong{
+    display:block;
+    color:#222;
+    margin-bottom:5px;
+}
+
+.contact-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* ================= MAPA ================= */
+.map{
+    width:100%;
+    margin-left:calc(-50vw + 50%);
+    margin-top:4rem;
+    position:relative;
+    overflow:hidden;
+}
+
+.map iframe{
+    width:100%;
+    height:400px;
+    display:block;
+    filter:brightness(0.75);
+    transition:filter 0.8s ease, transform 0.4s ease;
+}
+
+.map-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.15);
+    transition:0.4s ease;
+    pointer-events:none;
+}
+
+.map:hover iframe{
+    filter:brightness(1);
+    transform:scale(1.02);
+}
+
+.map:hover .map-overlay{
+    background:rgba(0,0,0,0.05);
+}
+
+/* ================= HERO CONTACT ================= */
+.hero-overlay{
+    display:none;
+}
+
+.hero-section.hero-contact .hero-overlay{
+    display:block;
+}
+
+/* ================= TELÉFONO ================= */
+.phone-link{
+    display:inline-block;
+    background:#c81414;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.phone-link:hover{
+    background:#a80f0f;
+}
+
+/* ================= EMAIL ================= */
+a[href^="mailto"]{
+    color:#c81414;
+    font-weight:600;
+    border-bottom:1px solid transparent;
+    transition:0.3s;
+}
+
+a[href^="mailto"]:hover{
+    border-bottom:1px solid #c81414;
+}
+
+.hero-highlight{
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.hero-highlight::after{
+    content:'';
+    display:block;
+    width:100%;
+    height:3px;
+    background:#e8d3b0;
+    margin-top:8px;
+    transform:scaleX(0);
+    transform-origin:left;
+    animation:lineReveal 2s ease infinite;
+}
+
+.hero-subtitle::after{
+    display:none !important;
+}
+
+/* ==============================================
+INICIAR SESIÓN CLIENTE
+================================================ */
+
+.hero-login {
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('../img/tu-imagen.jpg') center/cover no-repeat;
+}
+
+.hero-login h1,
+.hero-login p {
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.hero-content {
+    color: #fff;
+}
+
+/* CONTENEDOR LOGIN CLIENTE */
+.user-login-page{
+    min-height: calc(100vh - 200px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f4e4cf;
+    padding:40px 20px;
+}
+
+/* TARJETA */
+.login-box{
+    background:#fff;
+    padding:50px;
+    border-radius:16px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+
+    width:100%;
+    max-width:600px;
+}
+
+/* TITULO */
+.login-box h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* INPUTS */
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    margin-bottom:20px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+/* BOTÓN */
+.login-box .btn{
+    width:100%;
+}
+
+/* LINK */
+.login-link{
+    margin-top:20px;
+    text-align:center;
+}
+
+.login-link a{
+    color:#c81414;
+    font-weight:600;
+}
+
+
+
+
+/* =================================================
+CARRITO VACÍO - EMPTY STATE
+================================================= */
+
+.empty-state{
+text-align:center;
+padding:3rem;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:1.2rem;
+max-width:400px;
+margin:auto;
+}
+
+
+/* =================================================
+CARRITO HERO OVERLAY
+================================================= */
+
+/* CARRITO (HERO) */
+
+.hero-section{
+    position:relative;
+    overflow:hidden; /* 👈 CLAVE */
+}
+
+
+/* HERO CONTACTO Y CARRITO (REUTILIZADO) */
+.hero-section.hero-contact::before,
+.hero-section.hero-cart-page::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:url("../img/carniceria.jpg") center/cover no-repeat;
+
+    filter:blur(8px);
+    transform:scale(1.2);
+
+    z-index:0;
+}
+
+/* OVERLAY (MENOS OSCURO ) */
+.hero-section.hero-contact::after,
+.hero-section.hero-cart-page::after{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background: linear-gradient(
+        rgba(0,0,0,0.55),   
+        rgba(0,0,0,0.75)    
+    );
+
+    z-index:1;
+}
+
+
+/* HOVER CARRITO IMG */
+.hero-cart:hover img {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 20px 35px rgba(0,0,0,0.6));
+}
+
+/* CONTENEDOR DEL CARRITO */
+.hero-cart {
+    margin: 20px 0;
+    text-align: center;
+    display: inline-block;
+
+    animation: floatCart 3.5s ease-in-out infinite;
+}
+
+/* HERO CARRITO IMAGEN */
+.hero-cart img {
+    width: 140px;
+    display: block;
+    margin: 0 auto;
+
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* CARRITO ANIMACIÓN */
+@keyframes floatCart {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* HOVER CARRITO */
+.hero-cart:hover img {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 20px 35px rgba(0,0,0,0.6));
+}
+
+.hero-cart:hover {
+    animation-play-state: paused;
+}
+
+/* =================================================
+CARRITO (CART)
+================================================= */
+
+.cart {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.cart h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+/* CARRITO LISTA DE PRODUCTOS */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+/* CARRITO ITEM INDIVIDUAL */
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* hover suave */
+.cart-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+
+/* IMAGEN CARRITO */
+.cart-item img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* INFO CARRITO */
+.cart-item__info {
+    flex: 1;
+}
+
+
+/* CARRITO ACCIONES */
+.cart-item__actions {
+    display: flex;
+    gap: 1rem;
+}
+
+
+/* CARRITO RESUMEN */
+.cart-summary {
+    margin-top: 2.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cart-summary h3 {
+    color: #c81414;
+}
+
+
+
+/* =================================================
+FOOTER
+================================================= */
+
+.footer{
+    background:#171717;
+    color:#f1f1f1;
+    padding-top:2.5rem;
+}
+
+.footer__top{
+    display:grid;
+    grid-template-columns:2fr 1fr 1.5fr;
+    gap:2rem;
+    padding:0 2rem 2rem;
+}
+
+.footer__bottom{
+    border-top:1px solid #333;
+    padding:1rem;
+    text-align:center;
+    font-size:0.9rem;
+    color:#888;
+}
+
+@media (max-width:768px){
+    .footer__top{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =================================================
+MEJORAS VISUALES FOOTER
+================================================= */
+
+.footer__top h3,
+.footer__top h4 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.footer__top p {
+    color: #b5b5b5;
+    line-height: 1.6;
+}
+
+.footer__top a {
+    color: #b5b5b5;
+    transition: all 0.3s ease;
+}
+
+.footer__top a:hover {
+    color: #c81414;
+    transform: translateX(3px);
+}
+
+.footer__top li {
+    margin-bottom: 8px;
+}
+
+.footer__top i {
+    color: #c81414;
+    margin-right: 8px;
+}
+
+.footer__top > div:first-child h2 {
+    color: #ffffff;
+}
+
+.footer-phones{
+    width: auto;
+    margin-left: 40px; 
+    margin-top: 8px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:flex-start; 
+}
+
+/* FIN FOOTER */ 
+
+
+/* ================= FIX QUE OFRECEMOS ================= */
+
+.about-split.reverse .about-split__content{
+    padding:60px 120px !important;
+    background:#f4e4cf !important;
+}
+
+
+
+/* ================= AVISO PROYECTO ================= */
+
+.project-banner{
+    position: fixed;
+    top: 72px;   /* justo debajo del header */
+    left: 0;
+    width: 100%;
+
+    background: linear-gradient(90deg,#c81414,#ff3c3c);
+    color: #fff;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 9998;
+}
+
+/* animación cerrar */
+.project-banner.hide{
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: 0.3s ease;
+}
+
+.close-banner{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+main{
+    margin-top: 120px; /* 72 header + ~40 banner */
+}
+

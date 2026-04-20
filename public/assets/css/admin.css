@@ -1,0 +1,421 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f4f4;
+}
+
+h1,h2{
+    color:#333;
+}
+
+/* =======================HEADER / NAV ===============*/
+/* ================= HEADER ADMIN ================= */
+
+header {
+    background: #0c0c0c;
+    padding: 15px 40px;
+}
+
+.admin-header{
+    display:flex;
+    align-items:center;
+    gap:15px; /* separación entre título y botón */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.admin-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    background: #c81414;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.logo-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* NAV */
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    color: #c81414;
+}
+
+nav a:visited {
+    color: #fff;
+}
+
+
+
+/*=================== LOGIN ============= */
+.login-page{
+    min-height: calc(100vh - 120px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.login-box{
+    background:#fff;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    width:400px;
+}
+
+.login-box input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.login-box button{
+    width:100%;
+    padding:10px;
+    background:#c81414;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+}
+
+
+/* ==================== ADMIN GENERAL PARA TODAS LAS PÁGINAS ============= */
+.admin-page{
+    padding:40px;
+    min-height: calc(100vh - 120px);
+    display: block;
+}
+
+.admin-block{
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 40px auto;
+    width: 100%;
+    text-align: left;
+}
+
+.admin-title{
+    font-size:2rem;
+    font-weight:800;
+    margin-bottom:25px;
+    display:inline-block;
+}
+
+.admin-title::after{
+    content:'';
+    display:block;
+    height:3px;
+    background:#c81414;
+    margin-top:6px;
+}
+
+
+/* ============================ DASHBOARD ================ */
+
+/* LINKS DASHBOARD */
+.quick-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:15px;
+}
+
+.quick-links a{
+    text-decoration:none;
+    background:#ffffff;
+    color:#222;
+    padding:10px 16px;
+    border-radius:8px;
+    border:1px solid #e8d3b0;
+    font-weight:600;
+    transition:all 0.25s ease;
+}
+
+/* hover elegante */
+.quick-links a:hover{
+    background:#c81414;
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(200,20,20,0.2);
+}
+
+/* botón peligro */
+.quick-links a.danger{
+    background:#fff5f5;
+    border-color:#f5c2c2;
+    color:#c81414;
+}
+
+.quick-links a.danger:hover{
+    background:#c81414;
+    color:#fff;
+}
+
+
+/*=================TARJETAS RECUADROS DE DASHBOARD =============*/
+/* ===== FONDO GENERAL ===== */
+body{
+    background:#f4e4cf;
+}
+
+/* ===== GRID DASHBOARD ===== */
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+    margin-top:20px;
+}
+
+/* ===== TARJETAS ===== */
+.dashboard-card{
+    background:#ffffff;
+    border-radius:14px;
+    padding:20px;
+    border:1px solid rgba(200,20,20,0.08);
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+    transition:all 0.25s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Línea roja superior */
+.dashboard-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#c81414;
+}
+
+/* ===== TITULOS ===== */
+.dashboard-card h3{
+    font-size:1.2rem;
+    font-weight:700;
+    color:#222;
+    margin-bottom:12px;
+}
+
+/* ===== NUMEROS ===== */
+.dashboard-card strong{
+    color:#c81414;
+    font-weight:700;
+}
+
+/* ===== NUMERO GRANDE ===== */
+.big{
+    font-size:1.6rem;
+    font-weight:700;
+    color:#c81414;
+}
+
+/* TITULO SUBRAYADO DASHBOARD */
+.dashboard-title{
+    font-size:2.5rem;
+    font-weight:800;
+    color:#222;
+    margin-bottom:10px;
+    position:relative;
+    display:inline-block;
+}
+
+.dashboard-title::after{
+    content:'';
+    display:block;
+    width:100%;
+    height:4px;
+    background:#c81414;
+    margin-top:8px;
+    border-radius:2px;
+}
+
+
+/* ======================== TABLAS DE PEDIDOS / PRODUCTOS... =========== */
+.table-container{
+    background:#fff;
+    border-radius:10px;
+    overflow-x:auto;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.table-container table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table-container th{
+    background:#a61b1b;
+    color:#fff;
+}
+
+.table-container th,
+.table-container td{
+    padding:12px;
+    border:1px solid #eee;
+}
+
+
+/* =============== FORMULARIOS PEDIDOS / RECETAS / ENTRADAS =============== */
+/* CONTENERDOR */
+.form-container{
+    max-width:600px;
+    background:#f4e4cf; 
+    padding:2rem;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    margin:0 auto;
+}
+
+/* CAMPOS */
+.form-group{
+    margin-bottom:18px;
+    display:flex;
+    flex-direction:column;
+}
+
+/* INPUTS */
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:0.85rem 1rem;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#ffffff;
+    color:#333;
+}
+
+
+/* FOCUS */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#c81414;
+    box-shadow:0 0 0 3px rgba(200,20,20,0.15);
+}
+
+
+/* BOTONES */
+.btn-new{
+    background:#c81414;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:8px;
+    text-decoration:none;
+    margin-left: 10PX;
+}
+
+
+/* ENLACE DE VOLVER A */
+.back-link{
+    margin-top:30px;
+    max-width: 600px;      
+    margin: 20px auto 0;   
+    text-align: left;
+    display:block;
+}
+
+.back-link a{
+    text-decoration:none;
+    color:#c81414;
+    font-weight:600;
+    transition:0.3s;
+    display: inline-block;
+}
+
+.back-link a:hover{
+    text-decoration:underline;
+    color: #a80f0f;
+}
+
+.form-back {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.form-back a {
+    color: #c81414;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.form-back a:hover {
+    text-decoration: underline;
+}
+
+.badge-alert {
+    background: #c81414;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+.btn-reply {
+    background: #c81414;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.btn-reply:hover {
+    background: #a80f0f;
+}
+
+.alerta-row {
+    background: #ffe5e5;
+    border-left: 5px solid #c81414;
+    font-weight: 600;
+}
+
+.btn-reply {
+    background: #c81414;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-right: 6px;
+}
+
+.btn-reply:hover {
+    background: #a80f0f;
+}
