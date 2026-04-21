@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/layouts/header.php'; ?>
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -69,24 +71,24 @@ ini_set('display_errors', 1);
 
         <div class="products-grid">
 
-            <div class="product-card">
-                <img src="<?php echo ASSET_URL; ?>/img/hmixta.jpg" alt="Hamburguesas">
-                <h3>Hamburguesas artesanales</h3>
-                <span>6.90€/kg</span>
-            </div>
+            <?php if (!empty($ofertas)): ?>
 
-            <div class="product-card">
-                <img src="<?php echo ASSET_URL; ?>/img/alitasdepollo.avif" alt="Alitas">
-                <h3>Alitas de pollo</h3>
-                <span>4.90€/kg</span>
-            </div>
+                <?php foreach ($ofertas as $producto): ?>
+                    <div class="product-card">
+                        <img src="<?php echo ASSET_URL; ?>/img/<?php echo htmlspecialchars($producto['imagen'] ?? 'default.jpg'); ?>">
+                        <h3><?php echo htmlspecialchars($producto['nombre']); ?></h3>
+                        <span><?php echo number_format((float)$producto['precio_oferta'], 2, ',', '.'); ?> €/kg</span>
+                    </div>
+                <?php endforeach; ?>
 
-            <div class="product-card">
-                <img src="<?php echo ASSET_URL; ?>/img/chorizofrescoremovebg.png" alt="Chorizo">
-                <h3>Chorizo fresco</h3>
-                <span>5.50€/kg</span>
-            </div>
+            <?php else: ?>
+
+                <p>No hay ofertas disponibles en este momento.</p>
+
+            <?php endif; ?>
 
         </div>
     </div>
 </section>
+
+<?php require_once __DIR__ . '/layouts/footer.php'; ?>

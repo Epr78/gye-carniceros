@@ -7,13 +7,14 @@ require_once __DIR__ . '/../models/Producto.php';
 
 class FrontController
 {
-    public function inicio(): void
+   public function inicio(): void
     {
-        echo "ENTRANDO A INICIO";
-    exit;
-        view('front/layouts/header');
-        view('front/inicio');
-        view('front/layouts/footer');
+    $productoModel = new Producto();
+    $ofertas = $productoModel->getOfertas();
+
+    view('front/layouts/header');
+    view('front/inicio', ['ofertas' => $ofertas]);
+    view('front/layouts/footer');
     }
 
     public function quienes(): void
