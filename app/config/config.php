@@ -14,17 +14,17 @@ $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https'
 // Detectar host
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 
-//  Detectar entorno automáticamente
+// Detectar entorno automáticamente
 $isLocal = (
     $host === 'localhost' ||
     str_contains($host, '127.0.0.1')
 );
 
-//  Base path SOLO en local
+// Base path SOLO en local
 $basePath = $isLocal ? '/gye-carniceros/public' : '';
 
-//  BASE URL dinámica
+// BASE URL dinámica
 define('BASE_URL', $protocol . '://' . $host . $basePath);
 
-//  URL de assets (CSS, imágenes, JS)
-define('ASSET_URL', BASE_URL . '/assets');
+// ✅ URL de assets CORREGIDA
+define('ASSET_URL', $basePath . '/assets');
